@@ -15,10 +15,10 @@ pipeline {
             }
         }
 
-         stage('preparation') {
+         stage('build') {
             steps {
                 // Get some code from a GitHub repository
-                sh './mvnw package '
+                sh './mvnw package'
 
             }
         }
