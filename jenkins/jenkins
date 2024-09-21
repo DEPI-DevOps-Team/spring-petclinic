@@ -10,7 +10,7 @@ pipeline {
         stage('preparation') {
             steps {
                 // Get some code from a GitHub repository
-                git 'https://github.com/DEPI-DevOps-Team/spring-petclinic.git'
+                git branch:'andrew', url:'https://github.com/DEPI-DevOps-Team/spring-petclinic.git'
 
             }
         }
