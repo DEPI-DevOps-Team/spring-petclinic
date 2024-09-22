@@ -27,7 +27,7 @@ pipeline {
             steps {
                 withCredentials([usernamePassword(credentialsId: 'dockerhub', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) 
                { sh """
-                docker-compose up -d
+                docker compose up -d
                 docker login -u ${USERNAME} -p ${PASSWORD}
                 docker push andrewbassily0/petclinic
                 """ }
