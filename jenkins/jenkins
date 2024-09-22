@@ -18,7 +18,8 @@ pipeline {
          stage('build') {
             steps {
                 // Get some code from a GitHub repository
-                sh './mvnw generate-resources'
+                sh './mvnw package 
+                    java -jar target/*.jar '
 
             }
         }
