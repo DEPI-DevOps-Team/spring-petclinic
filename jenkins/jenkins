@@ -18,8 +18,8 @@ pipeline {
          stage('build') {
             steps {
                 // Get some code from a GitHub repository
-                sh './mvnw package 
-                    java -jar target/*.jar '
+                sh """./mvnw package 
+                    java -jar target/*.jar """
 
             }
         }
