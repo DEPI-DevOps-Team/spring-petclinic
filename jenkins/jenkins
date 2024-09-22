@@ -23,22 +23,16 @@ pipeline {
             }
         }
 
-        stage('ci') {
+        stage('cicd') {
             steps {
                 withCredentials([usernamePassword(credentialsId: 'dockerhub', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) 
                { sh """
-                docker build . -f dockerfile -t andrewbassily0/petclinic
+                docker-compose up -d
                 docker login -u ${USERNAME} -p ${PASSWORD}
                 docker push andrewbassily0/petclinic
                 """ }
             }
         }
-         stage('cd') {
-            steps {
-                // Run Maven on a Unix agent.
-                sh "docker run -d -p 3000:3000 andrewbassily0/petclinic"
-            }
-        }
-        
+         
     }
 }
